@@ -66,7 +66,7 @@ public class Main {
 	}
 
 	private static void exit(String mex) {
-		JkConsole.displayln(mex);
+		JkConsole.display(mex);
 		System.exit(1);
 	}
 
