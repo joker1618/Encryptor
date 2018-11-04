@@ -1,14 +1,12 @@
 package xxx.joker.apps.encryptor;
 
-import xxx.joker.libs.javalibs.utils.JkConsole;
-import xxx.joker.libs.javalibs.utils.JkEncryption;
+import xxx.joker.libs.core.utils.JkConsole;
+import xxx.joker.libs.core.utils.JkEncryption;
 
-import javax.crypto.BadPaddingException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.security.GeneralSecurityException;
 
 /**
  * Created by f.barbano on 22/07/2017.
@@ -17,7 +15,7 @@ public class Main {
 	private static final String EXT_ENCR = ".encr";
 	private static final String EXT_DECR = ".decr";
 
-	public static void main(String[] args) throws GeneralSecurityException, IOException {
+	public static void main(String[] args) throws IOException {
 		if(args.length < 2 || args.length > 4) {
 			String mex = "USAGE:  encr  [-d]  <FILE_TO_ENCRYPT>  <PASSWORD>  [-new]\n";
 			mex += "\t-d: decrypt\n";
@@ -51,11 +49,7 @@ public class Main {
 		if(encrypt) {
 			JkEncryption.encryptFile(input, outPath, pwd, true);
 		} else {
-			try {
-				JkEncryption.decryptFile(input, outPath, pwd, true);
-			} catch(BadPaddingException ex) {
-				exit("Wrong password!");
-			}
+            JkEncryption.decryptFile(input, outPath, pwd, true);
 		}
 
 		if(override) {

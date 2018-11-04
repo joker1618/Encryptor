@@ -65,7 +65,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>C:/Users/f.barbano/JokerApps/encryptor</outputDirectory>
+                            <outputDirectory>${user.home}/JokerApps/encryptor</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${project.build.directory}</directory>
@@ -84,7 +84,7 @@
     <dependencies>
         <dependency>
             <groupId>xxx.joker.libs</groupId>
-            <artifactId>java-libs</artifactId>
+            <artifactId>java-core</artifactId>
             <version>1.0</version>
         </dependency>
     </dependencies>
